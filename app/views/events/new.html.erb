@@ -4,7 +4,7 @@ form_for後第一個空格填入一個model產生的物件，這邊是由control
 url後帶入一個hash，rails 會依據給的controller與action產生對應的網站，新增資料的action我們預計使用create
 form_for會透過這些參數替我們產生適當的 form tag
 -->
-<%= form_for @event, :url => events_path do |f| %>
+<%= form_for @event, :url => events_path  do |f| %>
 
 <%= render :partial => "form", :locals => { :f => f } %>
 

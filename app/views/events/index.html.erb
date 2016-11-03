@@ -24,11 +24,11 @@
         <td> <%= event.name %> </td>
         <!-- 為每一個event 利用 URL輔助方法(link_to) 製作一個 文字超連結 -->
         <!-- 做一個超連結 show controller是events，action是show，id是當前的event-->
-        <td><%= link_to "Show" , event_path(event) %></td>
+        <td><%= link_to "Show" , event_path(event), :class => "btn btn-primary" %></td>
         <!--做一個超連結 edit controller是events，action是edit，id是當前的event-->
-        <td><%= link_to "Edit" , edit_event_path(event) %></td>
+        <td><%= link_to "Edit" , edit_event_path(event), :class => "btn btn-default" %></td>
         <!--做一個超連結 destroy controller是events，action是destroy，id是當前的event-->
-        <td><%= link_to "DELETE" , event_path(event), :method =>:delete %></td>
+        <td><%= link_to "DELETE" , event_path(event), :method =>:delete , :class => "btn btn-danger"%></td>
       </tr>
   <% end %>
 
@@ -38,7 +38,7 @@
 利用rails URL輔助方法 製作一個 文字超連結
 link_to "New Event", :controller => "events" , :action => "new"
 -->
-<%= link_to "New Event" , new_event_path %>
+<%= link_to "New Event" , new_event_path , :class => "btn btn-success" %>
 <br>
 <br>
 <%= paginate @events %>
