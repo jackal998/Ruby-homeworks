@@ -1,0 +1,24 @@
+<!--
+利用rails 提供的helper form_for產生表單
+form_for後第一個空格填入一個model產生的物件，這邊是由controller傳遞過來的@event
+url後帶入一個hash，rails 會依據給的controller與action產生對應的網站，修改資料的action我們預計使用update
+另外需要補上想要對哪一個id進行修改
+form_for會透過這些參數替我們產生適當的 form tag
+-->
+<%= form_for _____, :url => { :controller => ______, :action => _____ , :id => ______} do |f| %>
+    <%= f.label :name %>
+    <!--為 name 建立一個text_field的輸入框 跟new不同的是 rails很聰明的會把資料庫的內容先帶入-->
+
+    <%= f.label :description %>
+    <!--為 description 建立一個text_area的輸入框 跟new不同的是 rails很聰明的會把資料庫的內容先帶入-->
+
+    <!--使用submit方法建立一個送出的按鈕-->
+
+<% end %>
+
+<!--
+建議完成可以直接到瀏覽器
+http://localhost:3000/events/edit/:id
+這個:id的位置可以放資料庫已經存在的id ex: http://localhost:3000/events/edit/1
+看rails產生表單的內容對應的html程式碼
+-->
