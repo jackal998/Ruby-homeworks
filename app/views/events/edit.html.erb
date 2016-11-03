@@ -5,7 +5,7 @@ url後帶入一個hash，rails 會依據給的controller與action產生對應的
 另外需要補上想要對哪一個id進行修改
 form_for會透過這些參數替我們產生適當的 form tag
 -->
-<%= form_for @event, :url => { :controller => "events", :action => "update" , :id => @event} do |f| %>
+<%= form_for @event, :url => event_path(@event), :method => :patch do |f| %>
     
 <%= render :partial => "form", :locals => { :f => f } %>
 

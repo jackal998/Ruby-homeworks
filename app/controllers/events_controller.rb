@@ -31,7 +31,7 @@ before_action :set_event, :only => [:show, :edit, :update, :destroy]
     if @event.save
     # 轉跳到show
     flash[:notice] = "新增成功"
-    redirect_to :action => :show , :id => @event
+    redirect_to event_path(@event)
     # action show是顯示一筆資料 因此redirect_to 除了告訴rails 要去哪個action外
     # 還需要帶入:id => @event 告訴rails是哪一筆資料
     else
@@ -61,7 +61,7 @@ before_action :set_event, :only => [:show, :edit, :update, :destroy]
     # 因此處理strong parameter
     if @event.update(event_params)
     flash[:notice] = "編輯成功"
-    redirect_to :action => :show , :id => @event
+    redirect_to event_path(@event)
     # 轉跳到show
     # action show是顯示一筆資料 因此redirect_to 除了告訴rails 要去哪個action外
     # 還需要帶入:id => @event 告訴rails是哪一筆資料
@@ -76,7 +76,7 @@ before_action :set_event, :only => [:show, :edit, :update, :destroy]
     @event.destroy
     # 利用物件的方法刪除該筆資料
     flash[:alert] = "刪除成功"
-    redirect_to :action => :index
+    redirect_to events_path
     # 轉跳到index，redirect_to
   end
 
