@@ -1,4 +1,4 @@
-<h1>第一次打開這個網頁會是空白的！請到對應的view中刪除這個行，依指示完成此頁面</h1>
+<h1>This is event No.<%= @event[:id] %></h1>
 <!--
 controlerr中實例變數（instance variable）
 顯示這一筆資料的內容
@@ -8,13 +8,20 @@ ex:
 @event.is_public
 @event.capacity
 -->
+<ul>
+	<li>
+		<p>Name of event: <%= @event.name %></p>
+	</li>
+	<li>
+		<p>Description: <%= @event.description %></p>
+	</li>
+	<li>
+		<p>Is public: <%= @event.is_public %></p>
+	</li>
+	<li>
+		<p>Capacity: <%= @event.capacity %></p>
+	</li>
+</ul>
 
-
-
-
-
-
-
-
-
+<%= link_to "Index" , :controller => "events" , :action => "index" %>
 <!--做一個超連結 show controller是events，action是index-->

@@ -4,20 +4,9 @@ form_for後第一個空格填入一個model產生的物件，這邊是由control
 url後帶入一個hash，rails 會依據給的controller與action產生對應的網站，新增資料的action我們預計使用create
 form_for會透過這些參數替我們產生適當的 form tag
 -->
-<%= form_for _____, :url => { :controller => ______, :action => _____ } do |f| %>
-    <!--
-    使用f的method 後加上 column 的符號變數(symble)
-    block中f的method中常見表單欄位輔助方法
-    label  text_field  text_field  text_area  radio_button  check_box  file_field
-    select  select_date  select_datetime  hidden_field  submit
-    -->
-    <%= f.label :name %>
-    <!--為 name 建立一個text_field的輸入框-->
+<%= form_for @event, :url => { :controller => "events", :action => "create" } do |f| %>
 
-    <%= f.label :description %>
-    <!--為 description 建立一個text_area的輸入框-->
-
-    <!--使用submit方法建立一個送出的按鈕-->
+<%= render :partial => "form", :locals => { :f => f } %>
 
 <% end %>
 

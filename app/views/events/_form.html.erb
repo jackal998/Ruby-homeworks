@@ -1,0 +1,27 @@
+<% if @event.errors.any? %>
+    <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+<!--為 name 建立一個text_field的輸入框 跟new不同的是 rails很聰明的會把資料庫的內容先帶入-->
+
+<%= f.label :description %>
+<%= f.text_area :description %>
+<!--為 description 建立一個text_area的輸入框 跟new不同的是 rails很聰明的會把資料庫的內容先帶入-->
+
+<%= f.label :is_public %>
+<%= f.check_box :is_public  %>
+
+<%= f.label :capacity %>
+<%= f.text_field :capacity %>
+
+<%= f.submit %>
+<!--使用submit方法建立一個送出的按鈕-->
+<br>
+
+<%= link_to "Index" , :controller => "events" , :action => "index" %>

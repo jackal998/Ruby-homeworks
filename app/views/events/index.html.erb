@@ -3,17 +3,17 @@
 <ul>
   <!--將傳遞過來的實例變數(instance variable)，透過array的方法each一個一個放到black區塊執行-->
   <!--執行rails 語法的區塊有分有 = 跟沒有 = 兩種，差異是會不會把內容印出來。-->
-  <% ______________________ do |event| %>
+  <% @events.each do |event| %>
       <li>
         <!--印出每一個event的名字 每一個event的column name是一個方法 例如 event.description-->
-        <%= ________________ %>
+        <%= event.name %>
         <!-- 為每一個event 利用 URL輔助方法(link_to) 製作一個 文字超連結 -->
         <!-- 做一個超連結 show controller是events，action是show，id是當前的event-->
-        <%= link_to "show" , :controller => "events" , :action => "show" , :id =>event %>
+        <%= link_to "Show" , :controller => "events" , :action => "show" , :id =>event %>
         <!--做一個超連結 edit controller是events，action是edit，id是當前的event-->
-
+        <%= link_to "Edit" , :controller => "events" , :action => "edit" , :id =>event %>
         <!--做一個超連結 destroy controller是events，action是destroy，id是當前的event-->
-
+        <%= link_to "DELETE" , :controller => "events" , :action => "destroy" , :id =>event %>
       </li>
   <% end %>
 </ul>
@@ -22,3 +22,7 @@
 利用rails URL輔助方法 製作一個 文字超連結
 link_to "New Event", :controller => "events" , :action => "new"
 -->
+<%= link_to "New Event" , :controller => "events" ,:action => "new" %>
+<br>
+<br>
+<%= paginate @events %>
