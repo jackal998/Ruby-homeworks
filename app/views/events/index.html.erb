@@ -4,20 +4,12 @@
 <table class="table">
   <!--將傳遞過來的實例變數(instance variable)，透過array的方法each一個一個放到black區塊執行-->
   <!--執行rails 語法的區塊有分有 = 跟沒有 = 兩種，差異是會不會把內容印出來。-->
-<tr>
-  <th>
-    Event
-  </th>
-  <th>
-    Details
-  </th>
-  <th>
-    Edit
-  </th>
-  <th>
-    DELETE
-  </th>
-</tr>
+  <tr>
+    <th>Event</th>
+    <th>Details</th>
+    <th>Edit</th>
+    <th>DELETE</th>
+  </tr>
   <% @events.each do |event| %>
       <tr>
         <!--印出每一個event的名字 每一個event的column name是一個方法 例如 event.description-->
@@ -28,10 +20,9 @@
         <!--做一個超連結 edit controller是events，action是edit，id是當前的event-->
         <td><%= link_to "Edit" , edit_event_path(event), :class => "btn btn-default" %></td>
         <!--做一個超連結 destroy controller是events，action是destroy，id是當前的event-->
-        <td><%= link_to "DELETE" , event_path(event), :method =>:delete , :class => "btn btn-danger"%></td>
+        <td><%= link_to "DELETE" , event_path(event), :method => :delete , :class => "btn btn-danger"%></td>
       </tr>
   <% end %>
-
 </table>
 
 <!--
